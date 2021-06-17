@@ -1,13 +1,9 @@
 #include <stdio.h>
 
-/*
- *main - entry point of code
- *
- *Always "return (0)", which means success!
- */
+/* Use this */
 
 int main(void)
 {
 puts("\"Programming is like building a multilingual puzzle");
-return (0);
+ return (0);
 }
