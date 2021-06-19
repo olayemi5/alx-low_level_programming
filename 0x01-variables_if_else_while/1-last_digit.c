@@ -1,31 +1,29 @@
-#include <string.h>
-#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <stdio.h>
+
+/**
+ * main - Entry point of code
+ *
+ * Description: Gets the last number and checks if is postive zero of negative
+ *
+ * Return: Always 0
+ */
 
 int main(void)
 {
-        int n;
-        char msg[100];
-        int LastDigit;
-        srand(time(0));
-        n = rand() - RAND_MAX / 2;
-        LastDigit = n % 10;
-        if(n > 5 )
-          {
-            char msg1[] = "and is greater than 5";
-            strcpy(msg, msg1);
-          }
-        else if(n == 0)
-          {
-            char msg2[] = "and is 0";
-            strcpy(msg, msg2);
-          }
-        else if(n < 6 && n != 0)
-          {
-            char msg3[] = "and is less than 6 and not 0";
-            strcpy(msg, msg3);
-          }
-        printf("Last digit of %d is %d %s \n", n, LastDigit,msg);
-        return (0);
+	int n;
+	char *string;
+
+	srand(time(0));
+	n = rand() - RAND_MAX / 2;
+
+	if (n % 10 == 0)
+		string = "and is 0";
+	else if (n % 10 > 5)
+		string = "and is greater than 5";
+	else if (n % 10 < 6)
+		string = "and is less than 6 and not 0";
+	printf("Last digit of %d is %d %s\n", n, n % 10, string);
+	return (0);
 }
