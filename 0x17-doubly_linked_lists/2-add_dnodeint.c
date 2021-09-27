@@ -1,28 +1,28 @@
+#include <stdlib.h>
 #include "lists.h"
 
 /**
- * add_dnodeint - a function that adds a new node at
- * the beginning of a dlistint_t list.
- * @head: pointer to the head node
- * @n: number of nodes
+ * add_dnodeint - adds a new node at the beginning of a dlistint_t list
+ * @head: a pointer to the start of the list
+ * @n: the data of the new node.
  *
- * Return: the address of the new element, or NULL if it failed
+ * Return: the address of the new element, else NULL
  */
 dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 {
-dlistint_t *new_node = malloc(sizeof(dlistint_t));
+	dlistint_t *new;
 
-if (!new_node)
-{
-return (NULL);
-}
-new_node->n = n;
-new_node->prev = NULL;
-new_node->next = *head;
-if (*head)
-{
-(*head)->prev = new_node;
-}
-*head = new_node;
-return (new_node);
+	new = malloc(sizeof(dlistint_t));
+	if (!new)
+		return (NULL);
+
+	new->n = n;
+	new->prev = NULL;
+	new->next = *head;
+
+	if (*head)
+		(*head)->prev = new;
+	*head = new;
+
+	return (new);
 }
